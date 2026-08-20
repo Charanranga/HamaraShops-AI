@@ -1,0 +1,99 @@
+[
+  {
+    "id": "car-001",
+    "slug": "ai-systems-architect",
+    "title": "AI Systems Architect",
+    "department": "AI Engineering",
+    "location": "Remote / Hybrid",
+    "employmentType": "Full-Time",
+    "description": "Architect scalable Spring Cloud microservices and low-latency AI inference pipelines for enterprise platforms.",
+    "requirements": [
+      "8+ years of Java/Spring Boot enterprise microservices experience",
+      "Deep experience with Spring Cloud Gateway, Eureka, and Reactor Netty",
+      "Hands-on background deploying containerized AI inference models",
+      "Strong proficiency in distributed systems design and REST API design"
+    ],
+    "responsibilities": [
+      "Design end-to-end Spring Cloud microservice architectures",
+      "Integrate low-latency neural model inference wrappers into REST gateways",
+      "Lead cross-functional engineering teams in high-throughput system optimization"
+    ]
+  },
+  {
+    "id": "car-002",
+    "slug": "senior-mlops-engineer",
+    "title": "Senior MLOps Engineer",
+    "department": "Infrastructure & MLOps",
+    "location": "Remote / Hybrid",
+    "employmentType": "Full-Time",
+    "description": "Build automated continuous model training, drift detection telemetry, and zero-downtime deployment pipelines.",
+    "requirements": [
+      "5+ years of MLOps and cloud infrastructure experience",
+      "Proficiency with Kubernetes, Docker, and CI/CD automation",
+      "Experience monitoring model drift and telemetry data streams",
+      "Strong scripting abilities in Python, Bash, and container manifests"
+    ],
+    "responsibilities": [
+      "Establish automated model evaluation and retraining triggers",
+      "Monitor production model latency, drift, and throughput metrics",
+      "Optimize containerized GPU/CPU inference runtimes"
+    ]
+  },
+  {
+    "id": "car-003",
+    "slug": "computer-vision-specialist",
+    "title": "Computer Vision Specialist",
+    "department": "Vision AI",
+    "location": "Remote / Hybrid",
+    "employmentType": "Full-Time",
+    "description": "Develop high-precision visual recognition models for industrial inspection, spatial analytics, and medical diagnostics.",
+    "requirements": [
+      "4+ years of hands-on PyTorch or TensorFlow computer vision experience",
+      "Solid knowledge of object detection, image segmentation, and spatial neural networks",
+      "Experience optimizing models for Edge IoT hardware runtime deployment"
+    ],
+    "responsibilities": [
+      "Engineer computer vision models for automated visual defect detection",
+      "Benchmarking diagnostic precision and accuracy metrics",
+      "Collaborate with edge engineers on real-time stream ingestion"
+    ]
+  },
+  {
+    "id": "car-004",
+    "slug": "nlp-research-scientist",
+    "title": "NLP Research Scientist",
+    "department": "Natural Language Processing",
+    "location": "Remote / Hybrid",
+    "employmentType": "Full-Time",
+    "description": "Engineer domain-adapted large language models, multilingual document parsers, and semantic search retrieval engines.",
+    "requirements": [
+      "Master's or Ph.D. in Computer Science, Computational Linguistics, or related field",
+      "Expertise with Transformer architectures, Hugging Face, and LLM fine-tuning",
+      "Experience with high-dimensional vector embeddings and semantic search retrieval"
+    ],
+    "responsibilities": [
+      "Develop custom NLP engines supporting 100+ languages",
+      "Design prompt optimization and vector index retrieval pipelines",
+      "Publish and apply state-of-the-art algorithmic NLP techniques"
+    ]
+  },
+  {
+    "id": "car-005",
+    "slug": "enterprise-solutions-engineer",
+    "title": "Enterprise Solutions Engineer",
+    "department": "Solutions Architecture",
+    "location": "Remote / Hybrid",
+    "employmentType": "Full-Time",
+    "description": "Partner with enterprise clients to blue-print AI readiness, design custom integration workflows, and deliver technical solutions.",
+    "requirements": [
+      "5+ years of solution architecture or technical consulting experience",
+      "Strong background in enterprise REST APIs, cloud infrastructure, and AI integration",
+      "Excellent technical communication and client-facing blueprinting skills"
+    ],
+    "responsibilities": [
+      "Evaluate client data readiness and technical infrastructure maturity",
+      "Blueprint custom AI architecture integration specifications",
+      "Guide client engineering teams through microservice gateway onboarding"
+    ]
+  }
+]

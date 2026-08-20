@@ -1,0 +1,22 @@
+[
+  {
+    "id": "ins-001",
+    "slug": "revolutionizing-healthcare-ai",
+    "title": "Revolutionizing Healthcare with AI",
+    "type": "Case Study",
+    "description": "Exploring how Vision AI and anomaly detection accuracy transform healthcare diagnostic workflows across 50+ medical centers.",
+    "category": "Healthcare Diagnostics",
+    "tags": ["Healthcare", "Vision AI", "Diagnostics"],
+    "url": "https://hamarashops.com/"
+  },
+  {
+    "id": "ins-002",
+    "slug": "future-ethical-ai-products",
+    "title": "The Future of Ethical AI Products",
+    "type": "Blog Article",
+    "description": "How responsible neural network design and transparent AI governance enable trustworthy enterprise AI deployment.",
+    "category": "AI Ethics & Strategy",
+    "tags": ["Ethical AI", "Governance", "Enterprise Strategy"],
+    "url": "https://hamarashops.com/"
+  }
+]

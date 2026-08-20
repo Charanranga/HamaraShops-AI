@@ -1,0 +1,149 @@
+[
+  {
+    "id": "prod-001",
+    "slug": "cognitive-automation",
+    "title": "Cognitive Automation",
+    "tagline": "Intelligent Process Automation",
+    "description": "Automate complex enterprise workflows and decision-making processes using self-learning cognitive AI models.",
+    "category": "Automation",
+    "icon": "cpu",
+    "features": [
+      "Self-Learning Decision Models",
+      "Adaptive Workflow Engine",
+      "Enterprise Systems Integration"
+    ],
+    "benefits": [
+      "80% Reduction in Manual Tasks",
+      "99.9% Processing Accuracy",
+      "24/7 Autonomous Operation"
+    ],
+    "metrics": [
+      "80% Reduction in Manual Tasks",
+      "99.9% Processing Accuracy"
+    ]
+  },
+  {
+    "id": "prod-002",
+    "slug": "data-intelligence",
+    "title": "Data Intelligence",
+    "tagline": "Real-time Predictive Analytics",
+    "description": "Transform raw unstructured enterprise data into real-time actionable insights with automated data pipelines and predictive modeling.",
+    "category": "Analytics",
+    "icon": "database",
+    "features": [
+      "Automated Data Pipelines",
+      "Predictive Modeling",
+      "Real-Time Telemetry Processing"
+    ],
+    "benefits": [
+      "Data-Driven Decision Making",
+      "Scalable Ingestion",
+      "High Throughput Insights"
+    ],
+    "metrics": []
+  },
+  {
+    "id": "prod-003",
+    "slug": "vision-ai",
+    "title": "Vision AI",
+    "tagline": "Advanced Visual Recognition",
+    "description": "Computer vision algorithms for automated visual inspection, object detection, and spatial analytics in retail and industrial environments.",
+    "category": "Computer Vision",
+    "icon": "eye",
+    "features": [
+      "Real-time Object Detection",
+      "Spatial Analytics",
+      "Automated Visual Quality Control"
+    ],
+    "benefits": [
+      "Enhanced Inspection Accuracy",
+      "Reduced Manual Inspection Time",
+      "Continuous Safeguards"
+    ],
+    "metrics": []
+  },
+  {
+    "id": "prod-004",
+    "slug": "nlp-engines",
+    "title": "NLP Engines",
+    "tagline": "Natural Language Processing",
+    "description": "Custom natural language processing and understanding engines for automated document extraction, sentiment analysis, and multilingual conversational AI.",
+    "category": "Natural Language Processing",
+    "icon": "message-square",
+    "features": [
+      "Multilingual Understanding",
+      "Document Entity Extraction",
+      "Sentiment Analysis"
+    ],
+    "benefits": [
+      "Automated Document Processing",
+      "Improved Customer Engagement",
+      "Contextual Conversational AI"
+    ],
+    "metrics": [
+      "100+ Languages Supported"
+    ]
+  },
+  {
+    "id": "prod-005",
+    "slug": "defensive-ai",
+    "title": "Defensive AI",
+    "tagline": "Autonomous Threat Security",
+    "description": "Real-time AI threat detection, anomaly monitoring, and automated incident mitigation across digital enterprise infrastructure.",
+    "category": "Cybersecurity",
+    "icon": "shield",
+    "features": [
+      "Anomaly Detection",
+      "Automated Threat Mitigation",
+      "Infrastructure Health Safeguards"
+    ],
+    "benefits": [
+      "Continuous Security Compliance",
+      "Zero-Day Threat Defense",
+      "Reduced Risk Exposure"
+    ],
+    "metrics": [
+      "60% Reduced Risk Exposure"
+    ]
+  },
+  {
+    "id": "prod-006",
+    "slug": "mlops-hub",
+    "title": "MLOps Hub",
+    "tagline": "End-to-End Model Lifecycle Management",
+    "description": "Centralized machine learning operations platform for seamless model deployment, continuous monitoring, and automated retrain pipelines.",
+    "category": "ML Infrastructure",
+    "icon": "git-branch",
+    "features": [
+      "Automated Model Deployment",
+      "Continuous Drift Monitoring",
+      "Automated Retraining Pipelines"
+    ],
+    "benefits": [
+      "Accelerated Model Velocity",
+      "Reliable Production AI",
+      "Version-Controlled Artifacts"
+    ],
+    "metrics": []
+  },
+  {
+    "id": "prod-007",
+    "slug": "marketplace",
+    "title": "AI Marketplace",
+    "tagline": "Pre-built Enterprise AI Algorithms",
+    "description": "Curated ecosystem of pre-trained, production-ready AI models and algorithms for rapid enterprise integration.",
+    "category": "Ecosystem",
+    "icon": "grid",
+    "features": [
+      "Pre-trained AI Models",
+      "Plug-and-Play Connectors",
+      "Standardized REST Specifications"
+    ],
+    "benefits": [
+      "Instant AI Deployment",
+      "Lower Time-to-Value",
+      "Reusable Modular Architecture"
+    ],
+    "metrics": []
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "srv-001",
+    "slug": "ai-lifecycle-discovery",
+    "name": "01 Discovery — AI Strategy & Readiness",
+    "shortDescription": "Strategic guidance, data readiness evaluation, and architecture blueprinting.",
+    "fullDescription": "Evaluating enterprise data maturity, domain opportunities, target architectural blueprints, and security governance frameworks.",
+    "deliverables": [
+      "AI Readiness Assessment",
+      "Target Architecture Blueprint",
+      "Security & Governance Framework"
+    ],
+    "serviceType": "Lifecycle Stage"
+  },
+  {
+    "id": "srv-002",
+    "slug": "ai-lifecycle-modeling",
+    "name": "02 Modeling — Custom Algorithm Design",
+    "shortDescription": "Bespoke machine learning model development and algorithmic fine-tuning.",
+    "fullDescription": "Custom neural model engineering, proprietary dataset preparation, hyperparameter optimization, and accuracy benchmarking.",
+    "deliverables": [
+      "Custom Model Artifacts",
+      "Performance Tuning Reports",
+      "Precision-Recall Metrics"
+    ],
+    "serviceType": "Lifecycle Stage"
+  },
+  {
+    "id": "srv-003",
+    "slug": "ai-lifecycle-integration",
+    "name": "03 Integration — Microservice & Cloud Gateway Deployment",
+    "shortDescription": "Production wrapping into cloud-native microservices.",
+    "fullDescription": "Integration of trained AI models into Spring Cloud microservices, REST API Gateway routing, and containerized deployment.",
+    "deliverables": [
+      "REST Microservice Packaging",
+      "API Gateway Routes",
+      "Docker Containerization"
+    ],
+    "serviceType": "Lifecycle Stage"
+  },
+  {
+    "id": "srv-004",
+    "slug": "ai-lifecycle-evolution",
+    "name": "04 Evolution — Continuous MLOps & Monitoring",
+    "shortDescription": "Continuous telemetry, drift detection, and automated retrain pipelines.",
+    "fullDescription": "Post-deployment lifecycle management featuring continuous data drift monitoring, automated retrain triggers, and zero-downtime updates.",
+    "deliverables": [
+      "MLOps Drift Telemetry Dashboard",
+      "Automated Retraining Trigger Pipelines",
+      "SLA Performance Audits"
+    ],
+    "serviceType": "Lifecycle Stage"
+  },
+  {
+    "id": "srv-005",
+    "slug": "ai-powered-automation",
+    "name": "AI-Powered Automation",
+    "shortDescription": "End-to-end intelligent workflow and decision automation.",
+    "fullDescription": "Automate routine and complex business processes using cognitive workflows and intelligent decision models.",
+    "deliverables": [
+      "Automated Process Workflows",
+      "Decision Engine Models"
+    ],
+    "serviceType": "Core AI Capability"
+  },
+  {
+    "id": "srv-006",
+    "slug": "machine-learning-models",
+    "name": "Machine Learning Models",
+    "shortDescription": "Bespoke predictive ML models engineered for enterprise data.",
+    "fullDescription": "Custom predictive algorithms, classification pipelines, and real-time telemetry analytics.",
+    "deliverables": [
+      "Predictive Models",
+      "Telemetry Pipelines"
+    ],
+    "serviceType": "Core AI Capability"
+  },
+  {
+    "id": "srv-007",
+    "slug": "natural-language-processing",
+    "name": "Natural Language Processing",
+    "shortDescription": "Text parsing, sentiment analysis, and multilingual conversational AI.",
+    "fullDescription": "Enterprise NLP engines for document extraction, semantic classification, and dialogue management.",
+    "deliverables": [
+      "NLP Parsing Engines",
+      "Multilingual Dialogue Agents"
+    ],
+    "serviceType": "Core AI Capability"
+  },
+  {
+    "id": "srv-008",
+    "slug": "computer-vision-solutions",
+    "name": "Computer Vision Solutions",
+    "shortDescription": "Visual defect inspection, object detection, and spatial analytics.",
+    "fullDescription": "High-resolution computer vision algorithms for industrial quality inspection and visual recognition.",
+    "deliverables": [
+      "Vision Inspection Models",
+      "Object Recognition Pipelines"
+    ],
+    "serviceType": "Core AI Capability"
+  },
+  {
+    "id": "srv-009",
+    "slug": "scalable-ai-infrastructure",
+    "name": "Scalable AI Infrastructure",
+    "shortDescription": "Cloud-native microservice wrapping, API gateways, and MLOps pipelines.",
+    "fullDescription": "Resilient infrastructure packaging for low-latency inference and high-throughput AI microservices.",
+    "deliverables": [
+      "Containerized Microservices",
+      "API Gateway Routing Setup"
+    ],
+    "serviceType": "Core AI Capability"
+  }
+]

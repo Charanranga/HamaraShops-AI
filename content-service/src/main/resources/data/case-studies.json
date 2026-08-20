@@ -1,0 +1,29 @@
+[
+  {
+    "id": "cs-001",
+    "slug": "global-supply-chain-optimization",
+    "title": "Global Supply Chain Optimization",
+    "client": "Logistics Enterprise Corp",
+    "industry": "Supply Chain Logistics",
+    "summary": "Deployed predictive demand forecasting and dynamic order routing algorithms across regional fulfillment networks.",
+    "impact": "42% Reduction in Transit Bottlenecks"
+  },
+  {
+    "id": "cs-002",
+    "slug": "automated-candidate-screening",
+    "title": "Automated Candidate Screening & Verification",
+    "client": "Tech Talent Exchange",
+    "industry": "EdTech & Learning",
+    "summary": "Integrated NLP engines for multilingual resume parsing and skill verification.",
+    "impact": "90% Faster Recruitment Turnaround"
+  },
+  {
+    "id": "cs-003",
+    "slug": "defensive-ai-cyber-security",
+    "title": "Defensive AI Cyber Security Suite",
+    "client": "Fintech Trust Bank",
+    "industry": "Fintech & Banking",
+    "summary": "Implemented real-time anomaly monitoring and autonomous threat mitigation across multi-cloud infrastructure.",
+    "impact": "99.99% Threat Neutralization Rate"
+  }
+]

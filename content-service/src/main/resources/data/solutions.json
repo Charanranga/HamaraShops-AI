@@ -1,0 +1,267 @@
+[
+  {
+    "id": "sol-001",
+    "slug": "generative-ai-engines",
+    "title": "Generative AI Engines",
+    "subtitle": "Synthesized Content & Large Language Model Solutions",
+    "summary": "State-of-the-art generative AI systems powering text synthesis, automated document generation, and conversational interaction.",
+    "industry": "Enterprise IT & Media",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "Large Language Models (LLMs)",
+      "Synthesized Data Generation",
+      "Semantic Search & Retrieval"
+    ],
+    "components": [
+      "LLM Processing Core",
+      "Semantic Vector Index",
+      "Prompt Optimization Pipeline"
+    ]
+  },
+  {
+    "id": "sol-002",
+    "slug": "predictive-maintenance",
+    "title": "Predictive Maintenance",
+    "subtitle": "Industrial Sensor Analytics & Anomaly Detection",
+    "summary": "Predictive maintenance solutions integrating edge IoT sensors and neural network architectures for equipment failure prevention.",
+    "industry": "Industrial Manufacturing",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "Edge AI & IoT Integration",
+      "60% Reduced Risk Exposure",
+      "Real-time Telemetry Analytics"
+    ],
+    "components": [
+      "Edge IoT Sensor Connectors",
+      "Neural Anomaly Engine",
+      "Failure Alert Dispatcher"
+    ]
+  },
+  {
+    "id": "sol-003",
+    "slug": "fraud-detection-systems",
+    "title": "Fraud Detection Systems",
+    "subtitle": "Real-time Financial Transaction & Anomaly Monitoring",
+    "summary": "Autonomous transaction inspection and risk scoring models designed to neutralize fraudulent financial activities instantly.",
+    "industry": "Fintech & Banking",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "99.99% Threat Neutralization Rate",
+      "Sub-second Risk Scoring",
+      "Reinforcement Learning"
+    ],
+    "components": [
+      "Transaction Telemetry Stream",
+      "Defensive AI Scorer",
+      "Automated Freeze Gateway"
+    ]
+  },
+  {
+    "id": "sol-004",
+    "slug": "personalized-recommendations",
+    "title": "Personalized Recommendations",
+    "subtitle": "Behavioral Intelligence & Real-time Personalization",
+    "summary": "Adaptive recommendation engines analyzing user interaction patterns to increase engagement and conversion across digital platforms.",
+    "industry": "E-commerce & Retail",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "45% Business Growth",
+      "Real-time Behavioral Analytics",
+      "High Precision Matching"
+    ],
+    "components": [
+      "Behavior Tracker",
+      "Recommendation Matrix",
+      "API Personalization Engine"
+    ]
+  },
+  {
+    "id": "sol-005",
+    "slug": "ai-driven-customer-support",
+    "title": "AI-Driven Customer Support",
+    "subtitle": "Multilingual Conversational Agents & Ticket Resolution",
+    "summary": "Context-aware support automation utilizing NLP engines for intelligent inquiry routing and multi-channel ticket resolution.",
+    "industry": "EdTech, Retail & Services",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "100+ Languages Supported",
+      "80% Reduction in Manual Tasks",
+      "24/7 Support Coverage"
+    ],
+    "components": [
+      "NLP Query Parser",
+      "Conversational Dialogue Agent",
+      "Omnichannel Bridge"
+    ]
+  },
+  {
+    "id": "sol-006",
+    "slug": "automated-quality-control",
+    "title": "Automated Quality Control",
+    "subtitle": "Computer Vision Visual Defect Inspection",
+    "summary": "High-speed visual recognition systems for automated assembly line defect detection and quality compliance.",
+    "industry": "Industrial Manufacturing & Healthcare",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "99% Anomaly Detection Accuracy",
+      "Real-time Visual Inspection",
+      "Zero Production Downtime"
+    ],
+    "components": [
+      "Vision AI Camera Stream",
+      "Quality Inspector Model",
+      "Defect Rejection Pipeline"
+    ]
+  },
+  {
+    "id": "sol-007",
+    "slug": "smart-demand-forecasting",
+    "title": "Smart Demand Forecasting",
+    "subtitle": "Supply Chain Telemetry & Inventory Optimization",
+    "summary": "Predictive supply chain analytics balancing stock levels, reducing transit bottlenecks, and forecasting seasonal demand.",
+    "industry": "Supply Chain Logistics",
+    "type": "Interactive Solution",
+    "keyBenefits": [
+      "42% Reduction in Transit Bottlenecks",
+      "Predictive Stock Optimization",
+      "Automated Reorder Alerts"
+    ],
+    "components": [
+      "Supply Chain Data Ingestion",
+      "Demand Predictor Engine",
+      "Inventory Reorder Trigger"
+    ]
+  },
+  {
+    "id": "cap-001",
+    "slug": "large-language-models",
+    "title": "Large Language Models (LLMs)",
+    "subtitle": "Generative & Conversational Foundation Models",
+    "summary": "Custom fine-tuned and domain-adapted large language models for enterprise context processing.",
+    "industry": "Cross-Industry",
+    "type": "Technical Capability",
+    "keyBenefits": ["Contextual Ingestion", "Domain Specialization"],
+    "components": ["LLM Architecture"]
+  },
+  {
+    "id": "cap-002",
+    "slug": "neural-network-architectures",
+    "title": "Neural Network Architectures",
+    "subtitle": "Deep Learning & Pattern Recognition Networks",
+    "summary": "Custom deep learning architectures optimized for non-linear feature extraction.",
+    "industry": "Cross-Industry",
+    "type": "Technical Capability",
+    "keyBenefits": ["Pattern Identification", "Scalable Deep Learning"],
+    "components": ["Neural Core Engine"]
+  },
+  {
+    "id": "cap-003",
+    "slug": "edge-ai-iot-integration",
+    "title": "Edge AI & IoT Integration",
+    "subtitle": "On-Device Inference & Telemetry Edge Processing",
+    "summary": "Ultra-low latency model deployment directly onto edge IoT sensors and local gateway hardware.",
+    "industry": "Industrial & Supply Chain",
+    "type": "Technical Capability",
+    "keyBenefits": ["Sub-millisecond Latency", "Offline Capability"],
+    "components": ["Edge Runtime Engine"]
+  },
+  {
+    "id": "cap-004",
+    "slug": "reinforcement-learning",
+    "title": "Reinforcement Learning",
+    "subtitle": "Autonomous Policy Optimization & Decision Agents",
+    "summary": "Self-optimizing reward-based algorithms for dynamic decision environments.",
+    "industry": "Fintech & Logistics",
+    "type": "Technical Capability",
+    "keyBenefits": ["Adaptive Policy", "Continuous Optimization"],
+    "components": ["RL Agent Core"]
+  },
+  {
+    "id": "cap-005",
+    "slug": "semantic-search-retrieval",
+    "title": "Semantic Search & Retrieval",
+    "subtitle": "Vector Indexing & Deep Context Search",
+    "summary": "High-dimensional vector embeddings for exact semantic document and catalog retrieval.",
+    "industry": "Cross-Industry",
+    "type": "Technical Capability",
+    "keyBenefits": ["Vector Similarity", "High Recall Precision"],
+    "components": ["Vector Store Indexer"]
+  },
+  {
+    "id": "cap-006",
+    "slug": "synthesized-data-generation",
+    "title": "Synthesized Data Generation",
+    "subtitle": "Privacy-Preserving Synthetic Datasets",
+    "summary": "Generative synthetic data pipelines for model training without privacy compromise.",
+    "industry": "Healthcare & Fintech",
+    "type": "Technical Capability",
+    "keyBenefits": ["Data Privacy", "Robust Training Coverage"],
+    "components": ["Synthetic GAN Engine"]
+  },
+  {
+    "id": "vert-001",
+    "slug": "ecommerce-retail",
+    "title": "E-commerce & Retail",
+    "subtitle": "Personalized Shopping & Visual Merchandise Intelligence",
+    "summary": "AI solutions driving dynamic recommendation, stock prediction, and customer retention in retail.",
+    "industry": "E-commerce & Retail",
+    "type": "Industry Vertical",
+    "keyBenefits": ["Increased Conversion", "Stock Optimization"],
+    "components": ["Retail AI Suite"]
+  },
+  {
+    "id": "vert-002",
+    "slug": "fintech-banking",
+    "title": "Fintech & Banking",
+    "subtitle": "Autonomous Risk Scoring & Transaction Fraud Defense",
+    "summary": "High-throughput fraud mitigation and automated compliance models for modern financial services.",
+    "industry": "Fintech & Banking",
+    "type": "Industry Vertical",
+    "keyBenefits": ["Zero-Day Defense", "Compliance Assurance"],
+    "components": ["Financial Security Suite"]
+  },
+  {
+    "id": "vert-003",
+    "slug": "healthcare-diagnostics",
+    "title": "Healthcare Diagnostics",
+    "subtitle": "Computer Vision & Clinical Decision Assist",
+    "summary": "High-precision diagnostic assistance models for medical imaging and patient anomaly monitoring.",
+    "industry": "Healthcare Diagnostics",
+    "type": "Industry Vertical",
+    "keyBenefits": ["99% Diagnostic Accuracy", "Clinical Assist"],
+    "components": ["Healthcare AI Suite"]
+  },
+  {
+    "id": "vert-004",
+    "slug": "industrial-manufacturing",
+    "title": "Industrial Manufacturing",
+    "subtitle": "Smart Assembly Inspection & Failure Prevention",
+    "summary": "Vision inspection and sensor telemetry analytics across industrial manufacturing facilities.",
+    "industry": "Industrial Manufacturing",
+    "type": "Industry Vertical",
+    "keyBenefits": ["Zero Downtime", "Defect Prevention"],
+    "components": ["Manufacturing AI Suite"]
+  },
+  {
+    "id": "vert-005",
+    "slug": "edtech-learning",
+    "title": "EdTech & Learning",
+    "subtitle": "Adaptive Learning Pathways & Candidate Evaluation",
+    "summary": "Automated skill assessment and personalized learning content generation.",
+    "industry": "EdTech & Learning",
+    "type": "Industry Vertical",
+    "keyBenefits": ["Adaptive Pathways", "Automated Evaluation"],
+    "components": ["EdTech AI Suite"]
+  },
+  {
+    "id": "vert-006",
+    "slug": "supply-chain-logistics",
+    "title": "Supply Chain Logistics",
+    "subtitle": "Fleet Route Optimization & Warehouse Automation",
+    "summary": "Dynamic logistics routing and predictive inventory allocation across complex supply networks.",
+    "industry": "Supply Chain Logistics",
+    "type": "Industry Vertical",
+    "keyBenefits": ["Reduced Transit Times", "Fleet Efficiency"],
+    "components": ["Logistics AI Suite"]
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "ind-001",
+    "slug": "ecommerce-retail",
+    "name": "E-commerce & Retail",
+    "subtitle": "Personalized Shopping & Visual Merchandise Intelligence",
+    "description": "AI solutions driving dynamic recommendation, stock prediction, and customer retention across digital retail platforms.",
+    "category": "Retail Technology",
+    "keyCapabilities": [
+      "Real-time Behavioral Analytics",
+      "Personalized Recommendation Engines",
+      "Automated Inventory Telemetry"
+    ],
+    "useCases": [
+      "Dynamic Pricing & Promotions",
+      "Visual Merchandise Search",
+      "Demand Forecasting & Reorder Automation"
+    ],
+    "impactMetrics": [
+      "45% Business Growth",
+      "Increased Conversion Rates",
+      "Stock Level Optimization"
+    ]
+  },
+  {
+    "id": "ind-002",
+    "slug": "fintech-banking",
+    "name": "Fintech & Banking",
+    "subtitle": "Autonomous Risk Scoring & Transaction Fraud Defense",
+    "description": "High-throughput fraud mitigation and automated compliance models for modern financial services and digital banking.",
+    "category": "Financial Technology",
+    "keyCapabilities": [
+      "Defensive AI Transaction Inspection",
+      "Sub-second Anomaly Risk Scoring",
+      "Reinforcement Learning Policy Models"
+    ],
+    "useCases": [
+      "Real-time Transaction Fraud Neutralization",
+      "Automated Credit & Risk Assessment",
+      "Zero-Day Threat Defense"
+    ],
+    "impactMetrics": [
+      "99.99% Threat Neutralization Rate",
+      "Zero-Day Risk Mitigation",
+      "Continuous Regulatory Compliance"
+    ]
+  },
+  {
+    "id": "ind-003",
+    "slug": "healthcare-diagnostics",
+    "name": "Healthcare Diagnostics",
+    "subtitle": "Computer Vision & Clinical Decision Assist",
+    "description": "High-precision diagnostic assistance models for medical imaging, visual anomaly monitoring, and patient care workflows.",
+    "category": "HealthTech",
+    "keyCapabilities": [
+      "Vision AI Medical Scan Inspection",
+      "Spatial Anomaly Analytics",
+      "Privacy-Preserving Synthetic Data Pipelines"
+    ],
+    "useCases": [
+      "Automated Radiological Defect Screening",
+      "Clinical Decision Support Systems",
+      "Patient Metric Telemetry"
+    ],
+    "impactMetrics": [
+      "99% Anomaly Detection Accuracy across 50+ Medical Centers",
+      "Reduced Diagnostic Turnaround Time",
+      "HIPAA-Compliant Synthetic Analytics"
+    ]
+  },
+  {
+    "id": "ind-004",
+    "slug": "industrial-manufacturing",
+    "name": "Industrial Manufacturing",
+    "subtitle": "Smart Assembly Inspection & Failure Prevention",
+    "description": "Vision inspection and edge IoT telemetry analytics preventing equipment downtime across industrial manufacturing facilities.",
+    "category": "Industrial AI",
+    "keyCapabilities": [
+      "Edge IoT Sensor Connectors",
+      "Predictive Equipment Maintenance Models",
+      "Visual Quality Defect Inspection"
+    ],
+    "useCases": [
+      "Assembly Line Anomaly Detection",
+      "Predictive Machinery Maintenance",
+      "Zero Downtime Quality Control"
+    ],
+    "impactMetrics": [
+      "60% Reduced Risk Exposure",
+      "Zero Assembly Line Downtime",
+      "Sub-millisecond Edge Inference"
+    ]
+  },
+  {
+    "id": "ind-005",
+    "slug": "edtech-learning",
+    "name": "EdTech & Learning",
+    "subtitle": "Adaptive Learning Pathways & Candidate Evaluation",
+    "description": "Multilingual natural language parsing and intelligent evaluation systems optimizing personalized education and talent exchange.",
+    "category": "Education Technology",
+    "keyCapabilities": [
+      "Multilingual NLP Query Parsing",
+      "Automated Document Entity Extraction",
+      "Adaptive Skill Evaluation Models"
+    ],
+    "useCases": [
+      "Automated Resume & Candidate Screening",
+      "Personalized Learning Content Delivery",
+      "Multi-Language Educational Dialogue Agents"
+    ],
+    "impactMetrics": [
+      "90% Faster Recruitment Turnaround",
+      "100+ Languages Supported",
+      "80% Reduction in Manual Verification Tasks"
+    ]
+  },
+  {
+    "id": "ind-006",
+    "slug": "supply-chain-logistics",
+    "name": "Supply Chain Logistics",
+    "subtitle": "Fleet Route Optimization & Warehouse Automation",
+    "description": "Dynamic logistics routing and predictive inventory allocation across complex international supply networks.",
+    "category": "Logistics Technology",
+    "keyCapabilities": [
+      "Supply Chain Data Stream Ingestion",
+      "Demand Predictor & Route Optimization Engine",
+      "Automated Reorder Triggering"
+    ],
+    "useCases": [
+      "Fulfillment Bottleneck Prevention",
+      "Fleet Route Dynamic Dispatching",
+      "Warehouse Stock Level Balancing"
+    ],
+    "impactMetrics": [
+      "42% Reduction in Transit Bottlenecks",
+      "Optimized Fleet Fuel Efficiency",
+      "Automated Order Dispatching"
+    ]
+  }
+]
