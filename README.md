@@ -200,4 +200,4 @@ gcloud run deploy api-gateway \
 
 Distributed under the **MIT License**. See `LICENSE` for details.
 
-Developed with ❤️ by **Ravi (Senior Full Stack Engineer & Lead Architect)**.
+Developed with ❤️ by **Gorantla Charan Ranga (Full Stack Java Developer)**.
