@@ -5,68 +5,21 @@ import { Search, Menu, X, ArrowUpRight, Cpu, ChevronDown } from 'lucide-react';
 import SearchModal from './SearchModal';
 
 const navLinks = [
-  { name: 'Products', path: '/products' },
-  { name: 'Solutions', path: '/solutions' },
-  { name: 'Services', path: '/services' },
+  { name: 'About', path: '/about' },
   { name: 'Industries', path: '/industries' },
-  { name: 'Case Studies', path: '/case-studies' },
-  { name: 'Insights', path: '/insights' },
-  { name: 'Company', path: '/company' },
-  { name: 'Careers', path: '/careers' },
+  { name: 'AI Use Cases', path: '/use-cases' },
+  { name: 'AI Architecture', path: '/architecture' },
+  { name: 'Business Value', path: '/business-value' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 const megaMenuData = {
-  Products: [
-    { name: 'Cognitive Automation', path: '/products/cognitive-automation' },
-    { name: 'Data Intelligence', path: '/products/data-intelligence' },
-    { name: 'Vision AI', path: '/products/vision-ai' },
-    { name: 'NLP Engines', path: '/products/nlp-engines' },
-    { name: 'Defensive AI', path: '/products/defensive-ai' },
-    { name: 'MLOps Platform', path: '/products/mlops-hub' },
-    { name: 'All AI Products', path: '/products' },
-  ],
-  Solutions: [
-    { name: 'Generative AI Engines', path: '/solutions/generative-ai-engines' },
-    { name: 'Predictive Maintenance', path: '/solutions/predictive-maintenance' },
-    { name: 'Fraud Detection Systems', path: '/solutions/fraud-detection-systems' },
-    { name: 'Personalized Recommendations', path: '/solutions/personalized-recommendations' },
-    { name: 'Customer Support AI', path: '/solutions/ai-customer-support' },
-    { name: 'All Enterprise Solutions', path: '/solutions' },
-  ],
-  Services: [
-    { name: 'AI Readiness Evaluation', path: '/services/ai-readiness-evaluation' },
-    { name: 'Custom LLM Training', path: '/services/custom-llm-training' },
-    { name: 'Neural Architecture Design', path: '/services/neural-architecture-design' },
-    { name: 'MLOps Pipeline Integration', path: '/services/mlops-pipeline-integration' },
-    { name: 'Continuous Audit & Ethics', path: '/services/continuous-audit-ethics' },
-    { name: 'All Engineering Services', path: '/services' },
-  ],
   Industries: [
-    { name: 'Fintech & Banking', path: '/industries/fintech-banking' },
-    { name: 'Retail & E-commerce', path: '/industries/retail-ecommerce' },
-    { name: 'Healthcare Diagnostics', path: '/industries/healthcare-diagnostics' },
-    { name: 'Industrial Manufacturing', path: '/industries/industrial-manufacturing' },
-    { name: 'Supply Chain Logistics', path: '/industries/supply-chain-logistics' },
-    { name: 'All Sector Verticals', path: '/industries' },
-  ],
-  'Case Studies': [
-    { name: 'Fintech Fraud Case Study', path: '/case-studies/fintech-fraud-prevention' },
-    { name: 'Supply Chain Case Study', path: '/case-studies/global-supply-chain-optimization' },
-    { name: 'Healthcare AI Case Study', path: '/case-studies/revolutionizing-healthcare-ai' },
-    { name: 'All Case Reports', path: '/case-studies' },
-  ],
-  Insights: [
-    { name: 'Research Briefs', path: '/insights' },
-    { name: 'AI Ethics Framework', path: '/ethics' },
-    { name: 'Connected Ecosystem', path: '/integrations' },
-    { name: 'API Documentation', path: '/api-docs' },
-  ],
-  Company: [
-    { name: 'Corporate Profile', path: '/company' },
-    { name: 'Career Opportunities', path: '/careers' },
-    { name: 'Strategic Alliances', path: '/company' },
-    { name: 'Privacy Policy', path: '/privacy' },
-    { name: 'Sales Terms', path: '/sales-terms' },
+    { name: 'Retail', path: '/industries/retail' },
+    { name: 'Financial Services', path: '/industries/financial-services' },
+    { name: 'Media & Entertainment', path: '/industries/media-entertainment' },
+    { name: 'Healthcare & Life Sciences', path: '/industries/healthcare-life-sciences' },
+    { name: 'Manufacturing', path: '/industries/manufacturing' },
   ],
 };
 
@@ -87,13 +40,11 @@ export default function Header() {
     }
   });
 
-  // Close dropdown and mobile menu on location change
   useEffect(() => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
   }, [location]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -105,7 +56,6 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  // Keyboard shortcut listener (Escape closes mobile menu / search / dropdown)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -118,7 +68,6 @@ export default function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Handle smooth scroll to top when clicking any navigation link
   const handleNavClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setMobileMenuOpen(false);
@@ -162,7 +111,7 @@ export default function Header() {
                 HamaraShops<span className="text-[#ff6b6b]">.ai</span>
               </span>
               <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-slate-400 uppercase -mt-1 hidden xs:block">
-                Destination Digital
+                Gen AI Industry Use Cases
               </span>
             </div>
           </Link>
@@ -184,7 +133,7 @@ export default function Header() {
                   <Link
                     to={link.path}
                     onClick={handleNavClick}
-                    className={`relative px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-colors duration-200 z-10 flex items-center gap-1 ${
+                    className={`relative px-4 py-2 rounded-full text-xs xl:text-sm font-medium transition-colors duration-200 z-10 flex items-center gap-1 ${
                       isActive
                         ? 'text-white font-semibold'
                         : 'text-slate-300 hover:text-white'
@@ -199,11 +148,11 @@ export default function Header() {
                     )}
                     <span>{link.name}</span>
                     {hasDropdown && (
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180 text-[#ff6b6b]' : 'opacity-60'}`} />
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180 text-[#ff6b6b]' : 'opacity-60'}`} />
                     )}
                   </Link>
 
-                  {/* Options-Only Dropdown Panel (No Images) */}
+                  {/* Dropdown Panel for Industries */}
                   <AnimatePresence>
                     {activeDropdown === link.name && megaMenuData[link.name] && (
                       <motion.div
@@ -211,9 +160,9 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.97 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-2.5 w-60 bg-[#121620]/95 backdrop-blur-2xl border border-[#3c475a]/60 rounded-2xl p-2 shadow-2xl z-50 pointer-events-auto"
+                        className="absolute top-full left-0 mt-2.5 w-64 bg-[#121620]/95 backdrop-blur-2xl border border-[#3c475a]/60 rounded-2xl p-2.5 shadow-2xl z-50 pointer-events-auto"
                       >
-                        <div className="space-y-0.5">
+                        <div className="space-y-1">
                           {megaMenuData[link.name].map((subItem, sIdx) => (
                             <Link
                               key={sIdx}
@@ -239,7 +188,7 @@ export default function Header() {
             <button
               onClick={() => setSearchModalOpen(true)}
               className="p-2.5 rounded-full bg-[#1a1c20] border border-[#3c475a] text-slate-300 hover:text-white hover:border-[#ff6b6b]/50 hover:bg-[#282a2e] transition-all cursor-pointer"
-              title="Search AI Marketplace (Cmd+K)"
+              title="Search Gen AI Use Cases"
               aria-label="Search"
             >
               <Search className="w-4 h-4" />
@@ -260,7 +209,7 @@ export default function Header() {
             <button
               onClick={() => setSearchModalOpen(true)}
               className="p-2 rounded-lg bg-[#1a1c20] border border-[#3c475a] text-slate-300"
-              aria-label="Search Marketplace"
+              aria-label="Search Use Cases"
             >
               <Search className="w-5 h-5" />
             </button>
@@ -351,6 +300,22 @@ export default function Header() {
                           >
                             {link.name}
                           </Link>
+
+                          {/* Mobile Submenu for Industries */}
+                          {link.name === 'Industries' && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {megaMenuData.Industries.map((sub, sIdx) => (
+                                <Link
+                                  key={sIdx}
+                                  to={sub.path}
+                                  onClick={handleNavClick}
+                                  className="block px-3 py-2 text-xs text-slate-300 hover:text-white"
+                                >
+                                  • {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
                         </motion.div>
                       );
                     })}
@@ -370,7 +335,7 @@ export default function Header() {
                         className="w-full py-3 rounded-xl bg-[#1a1c20] border border-[#3c475a] text-slate-200 text-sm font-medium flex items-center justify-center gap-2"
                       >
                         <Search className="w-4 h-4 text-[#ff6b6b]" />
-                        <span>Search AI Marketplace</span>
+                        <span>Search Use Cases</span>
                       </button>
 
                       <Link

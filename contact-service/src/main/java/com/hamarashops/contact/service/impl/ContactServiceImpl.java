@@ -6,6 +6,7 @@ import com.hamarashops.contact.model.ContactInfo;
 import com.hamarashops.contact.model.ContactInquiryRequest;
 import com.hamarashops.contact.model.ContactInquiryResponse;
 import com.hamarashops.contact.service.ContactService;
+import com.hamarashops.contact.service.ResendEmailService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -20,12 +21,14 @@ public class ContactServiceImpl implements ContactService {
 
     private final ResourceLoader resourceLoader;
     private final ObjectMapper objectMapper;
+    private final ResendEmailService resendEmailService;
 
     private ContactInfo contactInfo;
 
-    public ContactServiceImpl(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
+    public ContactServiceImpl(ResourceLoader resourceLoader, ObjectMapper objectMapper, ResendEmailService resendEmailService) {
         this.resourceLoader = resourceLoader;
         this.objectMapper = objectMapper;
+        this.resendEmailService = resendEmailService;
     }
 
     @PostConstruct
@@ -64,8 +67,13 @@ public class ContactServiceImpl implements ContactService {
 
         String inquiryId = "inq-" + UUID.randomUUID().toString().substring(0, 8);
         String timestamp = LocalDateTime.now().toString();
-        String receiptMessage = "Inquiry received for validation. Thank you for contacting HamaraShops.ai.";
 
-        return new ContactInquiryResponse(inquiryId, "RECEIVED", timestamp, receiptMessage);
+        String resendEmailId = resendEmailService.sendInquiryEmail(request);
+
+        String receiptMessage = resendEmailId != null
+                ? "Inquiry received and notification email dispatched via Resend (" + resendEmailId + ")."
+                : "Inquiry received for validation. Thank you for contacting HamaraShops.ai.";
+
+        return new ContactInquiryResponse(inquiryId, "RECEIVED", timestamp, receiptMessage, resendEmailId);
     }
 }

@@ -30,7 +30,7 @@ export default function ApiDocs() {
   return (
     <div className="min-h-screen bg-[#0c0e12] text-[#e2e2e8] pt-32 pb-24 px-6 relative overflow-hidden">
       <div className="max-w-5xl mx-auto relative z-10">
-        
+
         {/* Page Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -81,11 +81,10 @@ export default function ApiDocs() {
                 className="flex flex-col md:flex-row items-start md:items-center gap-4 p-5 rounded-2xl bg-[#0c0e12]/80 border border-[#3c475a]/40 hover:border-[#ff6b6b]/50 transition-colors"
               >
                 <span
-                  className={`px-3.5 py-1 rounded-lg text-xs font-mono font-extrabold uppercase tracking-widest ${
-                    api.method === 'GET'
+                  className={`px-3.5 py-1 rounded-lg text-xs font-mono font-extrabold uppercase tracking-widest ${api.method === 'GET'
                       ? 'bg-blue-500/20 text-[#4cd6ff] border border-blue-500/30'
                       : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                  }`}
+                    }`}
                 >
                   {api.method}
                 </span>

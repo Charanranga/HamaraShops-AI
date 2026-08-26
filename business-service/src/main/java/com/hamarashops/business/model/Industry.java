@@ -1,7 +1,10 @@
 package com.hamarashops.business.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
+import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Industry {
     private String id;
     private String slug;
@@ -10,12 +13,15 @@ public class Industry {
     private String description;
     private String category;
     private List<String> keyCapabilities;
-    private List<String> useCases;
+    private List<Object> useCases;
     private List<String> impactMetrics;
+    private List<Map<String, String>> overviewStats;
+    private List<String> aiComponents;
+    private List<String> businessMetrics;
 
     public Industry() {}
 
-    public Industry(String id, String slug, String name, String subtitle, String description, String category, List<String> keyCapabilities, List<String> useCases, List<String> impactMetrics) {
+    public Industry(String id, String slug, String name, String subtitle, String description, String category, List<String> keyCapabilities, List<Object> useCases, List<String> impactMetrics, List<Map<String, String>> overviewStats, List<String> aiComponents, List<String> businessMetrics) {
         this.id = id;
         this.slug = slug;
         this.name = name;
@@ -25,6 +31,9 @@ public class Industry {
         this.keyCapabilities = keyCapabilities;
         this.useCases = useCases;
         this.impactMetrics = impactMetrics;
+        this.overviewStats = overviewStats;
+        this.aiComponents = aiComponents;
+        this.businessMetrics = businessMetrics;
     }
 
     public String getId() {
@@ -83,11 +92,11 @@ public class Industry {
         this.keyCapabilities = keyCapabilities;
     }
 
-    public List<String> getUseCases() {
+    public List<Object> getUseCases() {
         return useCases;
     }
 
-    public void setUseCases(List<String> useCases) {
+    public void setUseCases(List<Object> useCases) {
         this.useCases = useCases;
     }
 
@@ -97,5 +106,29 @@ public class Industry {
 
     public void setImpactMetrics(List<String> impactMetrics) {
         this.impactMetrics = impactMetrics;
+    }
+
+    public List<Map<String, String>> getOverviewStats() {
+        return overviewStats;
+    }
+
+    public void setOverviewStats(List<Map<String, String>> overviewStats) {
+        this.overviewStats = overviewStats;
+    }
+
+    public List<String> getAiComponents() {
+        return aiComponents;
+    }
+
+    public void setAiComponents(List<String> aiComponents) {
+        this.aiComponents = aiComponents;
+    }
+
+    public List<String> getBusinessMetrics() {
+        return businessMetrics;
+    }
+
+    public void setBusinessMetrics(List<String> businessMetrics) {
+        this.businessMetrics = businessMetrics;
     }
 }

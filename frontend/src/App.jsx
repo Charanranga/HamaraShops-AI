@@ -19,22 +19,16 @@ function ScrollToTop() {
 
 // Pages
 import Home from './pages/Home';
-import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
-import Solutions from './pages/Solutions';
-import SolutionDetail from './pages/SolutionDetail';
-import Services from './pages/Services';
-import ServiceDetail from './pages/ServiceDetail';
+import About from './pages/About';
 import Industries from './pages/Industries';
 import IndustryDetail from './pages/IndustryDetail';
-import CaseStudies from './pages/CaseStudies';
-import CaseStudyDetail from './pages/CaseStudyDetail';
-import Insights from './pages/Insights';
-import InsightDetail from './pages/InsightDetail';
-import Company from './pages/Company';
-import Careers from './pages/Careers';
-import CareerDetail from './pages/CareerDetail';
+import UseCases from './pages/UseCases';
+import Architecture from './pages/Architecture';
+import BusinessValue from './pages/BusinessValue';
 import Contact from './pages/Contact';
+import OurJourney from './pages/OurJourney';
+
+// Utility / Policy Pages
 import ApiDocs from './pages/ApiDocs';
 import Integrations from './pages/Integrations';
 import EthicsPolicy from './pages/EthicsPolicy';
@@ -52,33 +46,19 @@ export default function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:slug" element={<ProductDetail />} />
-          
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/solutions/:slug" element={<SolutionDetail />} />
-          
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/about" element={<About />} />
           
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:slug" element={<IndustryDetail />} />
           
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-          
-          <Route path="/insights" element={<Insights />} />
-          <Route path="/insights/:slug" element={<InsightDetail />} />
-          
-          <Route path="/company" element={<Company />} />
-          
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/careers/:id" element={<CareerDetail />} />
+          <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/architecture" element={<Architecture />} />
+          <Route path="/business-value" element={<BusinessValue />} />
           
           <Route path="/contact" element={<Contact />} />
+          <Route path="/our-journey" element={<OurJourney />} />
 
-          {/* Reference Project Content Pages */}
+          {/* Reference Policy / Integration Pages */}
           <Route path="/api-docs" element={<ApiDocs />} />
           <Route path="/integrations" element={<Integrations />} />
           <Route path="/ethics" element={<EthicsPolicy />} />
