@@ -7,27 +7,27 @@ import Card3D from '../common/Card3D';
 const teamVideos = [
   {
     id: 'team-video-1',
-    name: 'Charan Ranga',
+    name: 'Gorantla Charan Ranga',
     role: 'Full Stack Developer',
     title: 'My Journey with HamaraShops.ai',
     description: 'Sharing my experience and journey while developing HamaraShops.ai.',
-    videoUrl: 'https://www.youtube.com/embed/zms_htzRvOE',
-    linkedinUrl: 'https://www.linkedin.com/in/charan-ranga/',
+    videoUrl: 'https://www.youtube.com/embed/ZNFY7UCzhbM',
+    linkedinUrl: 'https://www.linkedin.com/in/gorantlacharanranga/',
     glowColor: '#ff6b6b'
   },
   {
     id: 'team-video-2',
-    name: 'Rahul Sharma',
+    name: 'Sadam Bharath',
     role: 'Backend Developer',
     title: 'Backend Development Journey',
     description: 'Sharing the backend development and microservices experience.',
-    videoUrl: 'https://www.youtube.com/embed/zms_htzRvOE',
-    linkedinUrl: 'https://www.linkedin.com/in/rahul-sharma/',
+    videoUrl: 'https://www.youtube.com/embed/D1zHyBLH3v0',
+    linkedinUrl: 'https://www.linkedin.com/in/sadambharath/',
     glowColor: '#4cd6ff'
   },
   {
     id: 'team-video-3',
-    name: 'Priya Reddy',
+    name: 'Akhil',
     role: 'Frontend Developer',
     title: 'Frontend & UI/UX Journey',
     description: 'Sharing the frontend development and UI/UX experience.',
@@ -37,12 +37,22 @@ const teamVideos = [
   },
   {
     id: 'team-video-4',
-    name: 'Arjun Kumar',
+    name: 'Bhavani',
     role: 'Cloud & Deployment Engineer',
     title: 'Cloud Deployment Journey',
     description: 'Sharing the deployment and Google Cloud experience.',
-    videoUrl: 'https://www.youtube.com/embed/zms_htzRvOE',
-    linkedinUrl: 'https://www.linkedin.com/in/arjun-kumar/',
+    videoUrl: 'https://www.youtube.com/embed/XskLsDyDLYw',
+    linkedinUrl: 'https://www.linkedin.com/in/madhikuntla-bhavani-7943ab1b0/',
+    glowColor: '#4cd6ff'
+  },
+  {
+    id: 'team-video-5',
+    name: 'Sainikhilesh',
+    role: 'Cloud & Deployment Engineer',
+    title: 'Cloud Deployment Journey',
+    description: 'Sharing the deployment and Google Cloud experience.',
+    videoUrl: 'https://www.youtube.com/embed/Mv4hUBVviIY',
+    linkedinUrl: 'https://www.linkedin.com/in/sainikhilesh-vangapally-914287411/',
     glowColor: '#4cd6ff'
   }
 ];
@@ -54,7 +64,7 @@ export default function TeamVideosSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#ff6b6b]/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}

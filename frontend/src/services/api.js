@@ -26,4 +26,5 @@ export const BusinessApi = {
 export const ContactApi = {
   getContactInfo: () => apiClient.get('/contact'),
   submitInquiry: (payload) => apiClient.post('/contact/inquire', payload),
+  scheduleAppointment: (payload) => apiClient.post('/contact/appointment', payload),
 };

@@ -6,6 +6,10 @@ spring:
     name: contact-service
   profiles:
     active: local
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:file:../.env[.properties]
 
 eureka:
   client:
@@ -17,6 +21,14 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${random.value}
+
+resend:
+  api:
+    key: ${RESEND_API_KEY:}
+  from: ${RESEND_FROM:onboarding@resend.dev}
+
+contact:
+  recipient: ${CONTACT_RECIPIENT:gorantlacjaran14@gmail.com}
 
 management:
   endpoints:

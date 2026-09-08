@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Search, Menu, X, ArrowUpRight, Cpu, ChevronDown } from 'lucide-react';
 import SearchModal from './SearchModal';
+import AppointmentModal from './AppointmentModal';
 
 const navLinks = [
   { name: 'About', path: '/about' },
@@ -27,6 +28,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [appointmentModalOpen, setAppointmentModalOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
 
@@ -61,6 +63,7 @@ export default function Header() {
       if (e.key === 'Escape') {
         setMobileMenuOpen(false);
         setSearchModalOpen(false);
+        setAppointmentModalOpen(false);
         setActiveDropdown(null);
       }
     };
@@ -194,14 +197,14 @@ export default function Header() {
               <Search className="w-4 h-4" />
             </button>
 
-            <Link
-              to="/contact"
-              onClick={handleNavClick}
+            <button
+              onClick={() => setAppointmentModalOpen(true)}
               className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#ff6b6b] to-[#ff8533] text-[#68000f] text-xs sm:text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-[#ff6b6b]/30 hover:opacity-95 transition-all flex items-center gap-1.5 group cursor-pointer"
+              aria-label="Schedule Appointment"
             >
-              <span>Consultation</span>
+              <span>Schedule Appointment</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu & Search Controls */}
@@ -338,14 +341,16 @@ export default function Header() {
                         <span>Search Use Cases</span>
                       </button>
 
-                      <Link
-                        to="/contact"
-                        onClick={handleNavClick}
-                        className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#ff6b6b] to-[#ff8533] text-[#68000f] text-center font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#ff6b6b]/30"
+                      <button
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setAppointmentModalOpen(true);
+                        }}
+                        className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#ff6b6b] to-[#ff8533] text-[#68000f] text-center font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#ff6b6b]/30 cursor-pointer"
                       >
-                        <span>Schedule Consultation</span>
+                        <span>Schedule Appointment</span>
                         <ArrowUpRight className="w-4 h-4" />
-                      </Link>
+                      </button>
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -357,6 +362,9 @@ export default function Header() {
 
       {/* Global Search Modal */}
       <SearchModal isOpen={searchModalOpen} onClose={() => setSearchModalOpen(false)} />
+
+      {/* Global Appointment Modal */}
+      <AppointmentModal isOpen={appointmentModalOpen} onClose={() => setAppointmentModalOpen(false)} />
     </>
   );
 }

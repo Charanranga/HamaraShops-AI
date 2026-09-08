@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, CheckCircle2, Workflow, TrendingUp, Cpu } from 'lucide-react';
 import HeroSection from '../components/home/HeroSection';
+import CompanyVideoSection from '../components/home/CompanyVideoSection';
 import LocationsSection from '../components/home/LocationsSection';
 import Card3D from '../components/common/Card3D';
 import { BusinessApi } from '../services/api';
@@ -52,7 +53,10 @@ export default function Home() {
       {/* 1. Hero Section with dynamic 3D WebGL core */}
       <HeroSection />
 
-      {/* 2. Locations Section with spatial card interactions */}
+      {/* 2. Company Tagline & Large Cinematic Video Section */}
+      <CompanyVideoSection />
+
+      {/* 3. Locations Section with spatial card interactions */}
       <LocationsSection />
 
       {/* 3. Generative AI Industry Use Cases Intro & 3D Glass Challenges */}

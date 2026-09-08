@@ -1,9 +1,10 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ShieldCheck } from 'lucide-react';
+import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ShieldCheck, Calendar, Clock } from 'lucide-react';
 import { ContactApi } from '../services/api';
 import InnerPageHero from '../components/common/InnerPageHero';
 import Card3D from '../components/common/Card3D';
+import AppointmentModal from '../components/common/AppointmentModal';
 
 // Lazy load 3D visualizer background
 const Float3DCanvas = lazy(() => import('../components/common/Float3DCanvas'));
@@ -23,6 +24,9 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [receipt, setReceipt] = useState(null);
   const [error, setError] = useState(null);
+
+  // Appointment Modal State
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
 
   useEffect(() => {
     async function loadContactInfo() {
@@ -61,7 +65,11 @@ export default function Contact() {
         message,
       };
       const res = await ContactApi.submitInquiry(payload);
-      setReceipt(res);
+      if (res && res.resendEmailId) {
+        setReceipt(res);
+      } else {
+        throw new Error(res?.message || 'Inquiry submission failed because Resend email service did not accept the request.');
+      }
     } catch (err) {
       console.error('Inquiry submission failed:', err);
       setError(err.message || 'Submission failed. Please check form parameters and try again.');
@@ -72,6 +80,12 @@ export default function Contact() {
 
   return (
     <div className="w-full min-h-screen bg-[#0c0e12] text-[#e2e2e8] relative overflow-hidden">
+      {/* Appointment Modal */}
+      <AppointmentModal
+        isOpen={isAppointmentOpen}
+        onClose={() => setIsAppointmentOpen(false)}
+      />
+
       {/* 3D WebGL Torus Background */}
       <Suspense fallback={<div className="absolute inset-0 bg-[#0c0e12]/80 opacity-50 z-0 pointer-events-none" />}>
         <Float3DCanvas />
@@ -103,7 +117,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
             
             {/* Left Column: Verified Metadata wrapped in Card3D */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 space-y-6">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -136,6 +150,38 @@ export default function Contact() {
                       </p>
                     </div>
                   </div>
+                </Card3D>
+              </motion.div>
+
+              {/* Dedicated Appointment Banner Card */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <Card3D glowColor="#ff6b6b" className="p-8 border border-[#ff6b6b]/40 bg-gradient-to-br from-[#1a1c20] via-[#0a1628] to-[#0c0e12] space-y-5 shadow-xl w-full">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-[#ff6b6b]/20 border border-[#ff6b6b]/40 text-[#ff6b6b]">
+                      <Calendar className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-headline text-lg font-bold text-white">Direct Meeting Request</h4>
+                      <p className="text-xs text-[#4cd6ff] font-mono">1-on-1 Architect Consultation</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                    Prefer a direct discussion? Submit a request to schedule a 1-on-1 meeting with our AI solution architects at your preferred date and time.
+                  </p>
+
+                  <button
+                    onClick={() => setIsAppointmentOpen(true)}
+                    className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#ff6b6b] to-[#ff8533] text-[#68000f] font-extrabold text-xs hover:shadow-xl hover:shadow-[#ff6b6b]/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>Schedule an Appointment</span>
+                  </button>
                 </Card3D>
               </motion.div>
             </div>
@@ -190,8 +236,20 @@ export default function Contact() {
                   ) : (
                     /* Controlled Contact Form */
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      <h3 className="font-headline text-3xl font-extrabold text-white mb-2">Submit Enterprise Inquiry</h3>
-                      <p className="text-xs text-slate-300 mb-6 font-normal">Select your inquiry category and fill in your technical evaluation parameters.</p>
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#3c475a]/50">
+                        <div>
+                          <h3 className="font-headline text-3xl font-extrabold text-white mb-1">Submit Enterprise Inquiry</h3>
+                          <p className="text-xs text-slate-300 font-normal">Business & technical evaluation inquiries</p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setIsAppointmentOpen(true)}
+                          className="px-4 py-2.5 rounded-xl bg-[#ff6b6b]/10 border border-[#ff6b6b]/40 text-[#ff6b6b] hover:bg-[#ff6b6b]/20 font-mono text-xs flex items-center gap-2 shrink-0 transition-colors cursor-pointer"
+                        >
+                          <Calendar className="w-4 h-4" />
+                          <span>Schedule Appointment</span>
+                        </button>
+                      </div>
 
                       {error && (
                         <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-3 text-red-400 text-xs font-mono">

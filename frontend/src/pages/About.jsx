@@ -1,6 +1,6 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Target, Compass, Milestone, ShieldCheck } from 'lucide-react';
+import { Sparkles, Target, Compass, Milestone, ShieldCheck, Award } from 'lucide-react';
 import { ContentApi } from '../services/api';
 import Card3D from '../components/common/Card3D';
 
@@ -125,6 +125,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="mb-16"
         >
           <Card3D glowColor="#3c475a" className="p-8 sm:p-12 bg-[#0a1628]/60 border border-[#3c475a]/50">
             <div className="flex items-center gap-3 mb-6">
@@ -137,13 +138,71 @@ export default function About() {
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
               {info.journey}
             </p>
+          </Card3D>
+        </motion.div>
 
-            <div className="mt-8 pt-6 border-t border-[#3c475a]/40 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
+        {/* Meet Our CEO / Leadership Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ff6b6b]/10 border border-[#ff6b6b]/30 text-[#ffb3b0] text-xs font-mono mb-3 uppercase tracking-widest">
+              <Award className="w-4 h-4 text-[#ff6b6b]" />
+              <span>LEADERSHIP</span>
+            </div>
+            <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-white">
+              Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b6b] to-[#4cd6ff]">CEO</span>
+            </h2>
+          </div>
+
+          <Card3D glowColor="#ff6b6b" className="p-4 sm:p-8 bg-[#0a1628]/70 border border-[#ff6b6b]/30 rounded-3xl shadow-2xl overflow-hidden max-w-4xl mx-auto">
+            <div className="relative w-full overflow-hidden rounded-2xl">
+              <img
+                src="/images/ceo_poster.png"
+                alt="Meet Our CEO - Gorantla Charan Ranga, Founder & Chief Executive Officer of HamaraShops.ai"
+                className="w-full h-auto object-contain rounded-xl max-h-[850px] mx-auto shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+                loading="lazy"
+              />
+            </div>
+          </Card3D>
+        </motion.div>
+
+        {/* Certified Technology & Process Consultants Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card3D glowColor="#4cd6ff" className="p-8 sm:p-10 bg-[#0a1628]/60 border border-[#4cd6ff]/30">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-[#4cd6ff]/10 border border-[#4cd6ff]/30 flex items-center justify-center text-[#4cd6ff]">
+                <ShieldCheck className="w-5 h-5 text-[#4cd6ff]" />
+              </div>
+              <h2 className="font-headline text-xl sm:text-2xl font-bold text-white">
+                Certified Technology & Process Consultants
+              </h2>
+            </div>
+            <p className="text-slate-300 text-sm leading-relaxed font-normal mb-6">
+              Our skill-certified technology and process consultants engineer, design, consult, operate, and modernize AI and enterprise systems across the world.
+            </p>
+            <div className="pt-4 border-t border-[#3c475a]/40 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#4cd6ff]">
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#4cd6ff]" />
-                <span>Certified Technology & Process Consultants</span>
+                <span className="w-2 h-2 rounded-full bg-[#4cd6ff]" />
+                Insurance Industry Solutions
               </span>
-              <span>Enterprise Insurance • Financial Services • Travel Industries</span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#ff6b6b]" />
+                Financial Services Intelligence
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                Travel & Enterprise Platforms
+              </span>
             </div>
           </Card3D>
         </motion.div>

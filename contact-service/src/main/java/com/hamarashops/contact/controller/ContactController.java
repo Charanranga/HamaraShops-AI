@@ -1,5 +1,7 @@
 package com.hamarashops.contact.controller;
 
+import com.hamarashops.contact.model.AppointmentRequest;
+import com.hamarashops.contact.model.AppointmentResponse;
 import com.hamarashops.contact.model.ContactInfo;
 import com.hamarashops.contact.model.ContactInquiryRequest;
 import com.hamarashops.contact.model.ContactInquiryResponse;
@@ -28,4 +30,11 @@ public class ContactController {
         ContactInquiryResponse response = contactService.submitInquiry(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+
+    @PostMapping("/appointment")
+    public ResponseEntity<AppointmentResponse> scheduleAppointment(@RequestBody AppointmentRequest request) {
+        AppointmentResponse response = contactService.scheduleAppointment(request);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
 }
+
