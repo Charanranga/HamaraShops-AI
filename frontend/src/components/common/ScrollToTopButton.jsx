@@ -34,7 +34,7 @@ export default function ScrollToTopButton() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-[#0a1628]/90 border border-[#ff6b6b]/40 text-[#ff6b6b] shadow-2xl backdrop-blur-xl hover:bg-[#ff6b6b] hover:text-[#68000f] hover:border-transparent transition-all duration-300 group cursor-pointer"
+          className="fixed bottom-24 right-6 z-40 p-3.5 rounded-full bg-[#0a1628]/90 border border-[#ff6b6b]/40 text-[#ff6b6b] shadow-2xl backdrop-blur-xl hover:bg-[#ff6b6b] hover:text-[#68000f] hover:border-transparent transition-all duration-300 group cursor-pointer"
           title="Scroll back to top"
           aria-label="Scroll back to top"
         >

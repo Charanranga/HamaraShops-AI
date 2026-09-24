@@ -23,7 +23,6 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { streamAssistantResponse, INITIAL_SUGGESTIONS } from '../../services/aiAssistantService';
-import AppointmentModal from './AppointmentModal';
 import './GeminiChatbot.css';
 
 const welcomeMessage = {
@@ -39,10 +38,12 @@ const welcomeMessage = {
   suggestions: INITIAL_SUGGESTIONS,
 };
 
-// Clean text of emojis, non-standard bullets, and corrupted mojibake (e.g. mojibake bullet/emojis)
+// Clean text of emojis, escaped markdown characters, and corrupted mojibake
 function sanitizeChatText(rawText) {
   if (!rawText) return '';
   return rawText
+    // Remove backslash escapes before markdown syntax characters: e.g. \* -> *, \- -> -, 1\. -> 1.
+    .replace(/\\([*_\-#`~.\[\]()!+>])/g, '$1')
     // 1. Corrupted UTF-8 bullet point: \u00e2\u20ac\u00a2 -> standard "- "
     .replace(/\u00e2\u20ac\u00a2/g, '- ')
     // 2. Corrupted UTF-8 dashes: \u00e2\u20ac\u2013 or \u00e2\u20ac\u2014 -> " - "
@@ -64,8 +65,87 @@ function sanitizeLabel(label) {
   return sanitizeChatText(label).replace(/\s+/g, ' ').trim();
 }
 
-// Formats rich markdown: code blocks, inline code, bold, bullet points, numbered lists
-function formatMessageContent(text, isCurrentlyStreaming = false) {
+// Tokenizes and renders inline markdown: code, links, bold-italic, bold, italic, and URLs
+function renderInlineContent(lineText, onActionClick) {
+  if (!lineText) return null;
+
+  // Regex matches: inline code, markdown link [label](target), ***bold-italic***, **bold**, *italic*, _italic_, URL
+  const tokenRegex = /(`[^`]+`|\[([^\]]+)\]\(([^)]+)\)|\*\*\*([^*]+)\*\*\*|\*\*([^*]+)\*\*|\*([^*]+)\*|_([^_]+)_|(https?:\/\/[^\s]+))/g;
+
+  const parts = [];
+  let lastIdx = 0;
+  let match;
+
+  while ((match = tokenRegex.exec(lineText)) !== null) {
+    if (match.index > lastIdx) {
+      parts.push(lineText.slice(lastIdx, match.index));
+    }
+
+    const fullMatch = match[0];
+
+    if (fullMatch.startsWith('`') && fullMatch.endsWith('`')) {
+      parts.push(
+        <code key={match.index} className="gemini-inline-code px-1.5 py-0.5 rounded bg-[#1f2838] text-[#4cd6ff] font-mono text-[11px]">
+          {fullMatch.slice(1, -1)}
+        </code>
+      );
+    } else if (match[2] && match[3]) {
+      const linkLabel = match[2];
+      const linkTarget = match[3];
+      parts.push(
+        <button
+          key={match.index}
+          type="button"
+          onClick={() => onActionClick && onActionClick(linkTarget)}
+          className="gemini-markdown-link inline cursor-pointer font-medium"
+        >
+          {linkLabel}
+        </button>
+      );
+    } else if (match[4]) {
+      parts.push(
+        <strong key={match.index} className="font-bold italic text-white">
+          {match[4]}
+        </strong>
+      );
+    } else if (match[5]) {
+      parts.push(
+        <strong key={match.index} className="font-semibold text-white">
+          {match[5]}
+        </strong>
+      );
+    } else if (match[6] || match[7]) {
+      parts.push(
+        <em key={match.index} className="italic text-slate-200">
+          {match[6] || match[7]}
+        </em>
+      );
+    } else if (fullMatch.startsWith('http')) {
+      parts.push(
+        <a
+          key={match.index}
+          href={fullMatch}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="gemini-markdown-link"
+        >
+          {fullMatch}
+        </a>
+      );
+    }
+
+    lastIdx = tokenRegex.lastIndex;
+  }
+
+  if (lastIdx < lineText.length) {
+    parts.push(lineText.slice(lastIdx));
+  }
+
+  return parts;
+}
+
+// Formats rich markdown: code blocks, headings, bold, bullet points, numbered lists, links, paragraphs
+function formatMessageContent(text, isCurrentlyStreaming = false, onActionClick = null) {
   if (!text) return null;
 
   const sanitizedText = sanitizeChatText(text);
@@ -112,57 +192,60 @@ function formatMessageContent(text, isCurrentlyStreaming = false) {
           );
         }
 
-        // Parse regular text block lines
+        // Parse lines in text segment
         const lines = segment.content.split('\n');
         return lines.map((line, lIdx) => {
           const trimmed = line.trim();
-          const isBullet = trimmed.startsWith('\u2022') || trimmed.startsWith('-') || trimmed.startsWith('*');
-          const isNumbered = /^\d+\.\s/.test(trimmed);
-
-          let cleanLine = trimmed;
-          let prefix = null;
-
-          if (isBullet) {
-            cleanLine = trimmed.replace(/^[\u2022\-\*]\s*/, '');
-            prefix = <span className="text-[#ff6b6b] text-xs font-bold leading-5 mr-1.5">-</span>;
-          } else if (isNumbered) {
-            const numMatch = trimmed.match(/^(\d+\.)\s*(.*)/);
-            if (numMatch) {
-              prefix = <span className="text-[#4cd6ff] text-xs font-mono font-bold leading-5 mr-1.5">{numMatch[1]}</span>;
-              cleanLine = numMatch[2];
-            }
-          }
-
-          // Parse inline code and bold
-          const inlineParts = cleanLine.split(/(`[^`]+`|\*\*.*?\*\*)/g);
-          const renderedParts = inlineParts.map((part, pIdx) => {
-            if (part.startsWith('`') && part.endsWith('`')) {
-              return (
-                <code key={pIdx} className="gemini-inline-code px-1.5 py-0.5 rounded bg-[#1f2838] text-[#4cd6ff] font-mono text-[11px]">
-                  {part.slice(1, -1)}
-                </code>
-              );
-            }
-            if (part.startsWith('**') && part.endsWith('**')) {
-              return <strong key={pIdx} className="font-semibold text-white">{part.slice(2, -2)}</strong>;
-            }
-            return part;
-          });
-
-          if (prefix) {
-            return (
-              <div key={`${sIdx}-${lIdx}`} className="gemini-bullet-item flex items-start my-1">
-                {prefix}
-                <span className="flex-1">{renderedParts}</span>
-              </div>
-            );
-          }
 
           if (!trimmed) {
             return <div key={`${sIdx}-${lIdx}`} className="h-1.5" />;
           }
 
-          return <p key={`${sIdx}-${lIdx}`} className="my-0.5 leading-relaxed">{renderedParts}</p>;
+          // Heading checks: ### Heading, ## Heading, # Heading
+          const headingMatch = trimmed.match(/^(#{1,3})\s+(.*)/);
+          if (headingMatch) {
+            const level = headingMatch[1].length;
+            const headingContent = headingMatch[2];
+            return (
+              <div
+                key={`${sIdx}-${lIdx}`}
+                className={`gemini-heading font-bold text-white my-1.5 ${
+                  level === 1 ? 'text-[14px]' : level === 2 ? 'text-[13px]' : 'text-[12.5px]'
+                }`}
+              >
+                {renderInlineContent(headingContent, onActionClick)}
+              </div>
+            );
+          }
+
+          // Bullet check: requires marker followed by whitespace (avoids **bold** being treated as bullet)
+          const bulletMatch = trimmed.match(/^[\u2022\-\*]\s+(.*)/);
+          if (bulletMatch) {
+            return (
+              <div key={`${sIdx}-${lIdx}`} className="gemini-bullet-item">
+                <span className="gemini-bullet-dot">-</span>
+                <span className="flex-1">{renderInlineContent(bulletMatch[1], onActionClick)}</span>
+              </div>
+            );
+          }
+
+          // Numbered list check: 1. or 1)
+          const numberedMatch = trimmed.match(/^(\d+)[.)]\s+(.*)/);
+          if (numberedMatch) {
+            return (
+              <div key={`${sIdx}-${lIdx}`} className="gemini-numbered-item">
+                <span className="gemini-numbered-badge">{numberedMatch[1]}.</span>
+                <span className="flex-1">{renderInlineContent(numberedMatch[2], onActionClick)}</span>
+              </div>
+            );
+          }
+
+          // Regular paragraph line
+          return (
+            <p key={`${sIdx}-${lIdx}`} className="my-0.5 leading-relaxed">
+              {renderInlineContent(trimmed, onActionClick)}
+            </p>
+          );
         });
       })}
       {isCurrentlyStreaming && <span className="gemini-typing-cursor" />}
@@ -178,10 +261,10 @@ export default function GeminiChatbot() {
   const [streamingText, setStreamingText] = useState('');
   const [copiedIndex, setCopiedIndex] = useState(null);
   const [speakingIndex, setSpeakingIndex] = useState(null);
-  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
   const messagesEndRef = useRef(null);
   const abortControllerRef = useRef(null);
+  const isSendingRef = useRef(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -197,21 +280,11 @@ export default function GeminiChatbot() {
     };
   }, []);
 
-  // Listen for global open-appointment-modal events
-  useEffect(() => {
-    const handleOpenAppointmentModal = () => {
-      setIsAppointmentModalOpen(true);
-    };
-    window.addEventListener('open-appointment-modal', handleOpenAppointmentModal);
-    return () => window.removeEventListener('open-appointment-modal', handleOpenAppointmentModal);
-  }, []);
-
   const handleActionClick = (path) => {
     if (!path) return;
 
     if (path === 'open-appointment' || path === '#appointment' || path === '/contact#appointment') {
       window.dispatchEvent(new CustomEvent('open-appointment-modal'));
-      setIsAppointmentModalOpen(true);
       return;
     }
 
@@ -234,7 +307,8 @@ export default function GeminiChatbot() {
 
   const handleSend = async (messageText) => {
     const query = (messageText || input).trim();
-    if (!query || isStreaming) return;
+    if (!query || isStreaming || isSendingRef.current) return;
+    isSendingRef.current = true;
 
     // Check if the user is asking to open the appointment modal
     const lower = query.toLowerCase();
@@ -247,7 +321,6 @@ export default function GeminiChatbot() {
       lower.includes('appointment section')
     ) {
       window.dispatchEvent(new CustomEvent('open-appointment-modal'));
-      setIsAppointmentModalOpen(true);
     }
 
     // Cancel any active speech
@@ -289,6 +362,7 @@ export default function GeminiChatbot() {
           ]);
           setStreamingText('');
           setIsStreaming(false);
+          isSendingRef.current = false;
           abortControllerRef.current = null;
         },
       });
@@ -308,6 +382,7 @@ export default function GeminiChatbot() {
       ]);
       setStreamingText('');
       setIsStreaming(false);
+      isSendingRef.current = false;
       abortControllerRef.current = null;
     }
   };
@@ -332,6 +407,7 @@ export default function GeminiChatbot() {
       }
       setStreamingText('');
       setIsStreaming(false);
+      isSendingRef.current = false;
       abortControllerRef.current = null;
     }
   };
@@ -384,14 +460,7 @@ export default function GeminiChatbot() {
   const activeSuggestions = lastAssistantMessage?.suggestions || INITIAL_SUGGESTIONS;
 
   return (
-    <>
-      {/* Universal Appointment Modal (triggered by chatbot or globally) */}
-      <AppointmentModal
-        isOpen={isAppointmentModalOpen}
-        onClose={() => setIsAppointmentModalOpen(false)}
-      />
-
-      <div className="gemini-chatbot">
+    <div className="gemini-chatbot">
         {isOpen && (
           <section className="gemini-panel" aria-label="HamaraShops Advanced NLP Assistant">
             <header className="gemini-panel-header">
@@ -469,7 +538,7 @@ export default function GeminiChatbot() {
                     )}
 
                     <div className="gemini-message-content">
-                      {formatMessageContent(message.text)}
+                      {formatMessageContent(message.text, false, handleActionClick)}
                     </div>
 
                     {/* Rich Interactive Media Cards */}
@@ -628,7 +697,7 @@ export default function GeminiChatbot() {
                     </div>
                     <div className="gemini-message-content">
                       {streamingText ? (
-                        formatMessageContent(streamingText, true)
+                        formatMessageContent(streamingText, true, handleActionClick)
                       ) : (
                         <div className="flex items-center gap-2 text-xs text-slate-400 py-1">
                           <LoaderCircle size={14} className="gemini-spinner text-[#ff6b6b]" />
@@ -674,9 +743,6 @@ export default function GeminiChatbot() {
                 id="gemini-message"
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' && !event.shiftKey) handleSubmit(event);
-                }}
                 placeholder="Ask anything about our AI solutions..."
                 disabled={isStreaming}
               />
@@ -716,6 +782,5 @@ export default function GeminiChatbot() {
           {isOpen ? <X size={23} /> : <MessageCircle size={23} />}
         </button>
       </div>
-    </>
   );
 }

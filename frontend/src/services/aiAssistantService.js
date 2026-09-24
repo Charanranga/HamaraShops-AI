@@ -369,7 +369,7 @@ export async function streamAssistantResponse({
     }
 
     // Show entire product suite
-    const text = `**HamaraShops.ai Enterprise AI Product Suite** (via Content Service /api/v1/products):\n\nWe offer **${products.length} core production-grade AI platforms** engineered for enterprise scale and zero-downtime microservices orchestration:\n\n1. **Cognitive Automation Engine**: Autonomous document parsing and complex decision automation (80% manual task reduction, 99.9% precision).\n2. **Conversational Commerce Concierge**: Omnichannel retail shopping and QSR drive-thru assistant (32% conversion uplift).\n3. **Defensive AI Cybersecurity Suite**: Autonomous threat neutralization protecting transaction streams with zero latency penalty (99.99% defense).\n4. **MLOps Enterprise Hub**: Continuous model deployment and drift telemetry managing 200+ production models.\n5. **Multilingual NLP Translation Engine**: Enterprise localization supporting 100+ languages with legal & medical terminology accuracy.\n6. **Vertex AI Semantic Search & Synthesis**: High-dimensional vector retrieval across decades of corporate archives and CAD schematics.\n\nExplore structured cards below or tap to view details:`;
+    const text = `**HamaraShops.ai Enterprise AI Product Suite** (via Content Service /api/v1/products):\n\nWe offer **${products.length} core production-grade AI platforms** engineered for enterprise scale and zero-downtime microservices orchestration:\n\n1. **Cognitive Automation Engine**: Autonomous document parsing and complex decision automation (80% manual task reduction, 99.9% precision).\n2. **Conversational Commerce Concierge**: Omnichannel retail shopping and QSR drive-thru assistant (32% conversion uplift).\n3. **Defensive AI Cybersecurity Suite**: Autonomous threat neutralization protecting transaction streams with zero latency penalty (99.99% defense).\n4. **MLOps Enterprise Hub**: Continuous model deployment and drift telemetry managing 200+ production models.\n5. **Multilingual NLP Translation Engine**: Enterprise localization supporting 100+ languages with legal & medical terminology accuracy.\n6. **Vertex AI Semantic Search & Synthesis**: High-dimensional vector retrieval across decades of corporate archives and CAD schematics.\n\nExplore featured product cards below or tap to view details:`;
 
     const streamed = await streamTextGradually(text, onToken, signal, 10);
     onComplete({
@@ -501,6 +501,36 @@ export async function streamAssistantResponse({
         { label: 'Manufacturing AI', path: '/industries/manufacturing' },
       ],
       suggestions: ['Explore Retail AI', 'Explore Financial AI', 'Explore Healthcare AI', 'Book Meeting'],
+      source: 'backend-live',
+    });
+    return;
+  }
+
+  // -------------------------------------------------------------
+  // 6b. ENTERPRISE SERVICES & ADVISORY (via Content Service /api/v1/services)
+  // -------------------------------------------------------------
+  if (
+    query.includes('service') ||
+    query.includes('advisory') ||
+    query.includes('fine-tuning') ||
+    query.includes('rag engineering') ||
+    query.includes('deployment service')
+  ) {
+    const text = `**Enterprise AI Services & Advisory** (via Content Service /api/v1/services):\n\nHamaraShops.ai provides specialized engineering and advisory engagements for enterprise Generative AI adoption:\n\n1. **Enterprise AI Architecture Advisory**: Strategic roadmap and architecture design for enterprise Generative AI adoption and LLM orchestration.\n2. **Custom Model Fine-Tuning & RAG Engineering**: Domain-specific model customization with Retrieval-Augmented Generation for proprietary enterprise datasets.\n3. **Google Cloud Run Serverless Deployment**: Production-ready zero-downtime microservices containerization and automated CI/CD deployment on Google Cloud Run.\n\nWould you like to schedule an engineering consultation or explore our system architecture?`;
+
+    const streamed = await streamTextGradually(text, onToken, signal, 10);
+    onComplete({
+      text: streamed,
+      actions: [
+        { label: 'Book Consultation', path: 'open-appointment' },
+        { label: 'System Architecture', path: '/architecture' },
+        { label: 'All Use Cases', path: '/use-cases' },
+      ],
+      suggestions: [
+        'Tell me about Custom Model Fine-Tuning',
+        'Explain Cloud Run Deployment',
+        'Explore System Architecture',
+      ],
       source: 'backend-live',
     });
     return;

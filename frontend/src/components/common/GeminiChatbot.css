@@ -1,4 +1,4 @@
-﻿.gemini-chatbot {
+.gemini-chatbot {
   position: fixed;
   right: 24px;
   bottom: 24px;
@@ -211,9 +211,51 @@
   box-shadow: 0 4px 14px rgba(255, 107, 107, 0.15);
 }
 
-.gemini-bullet-item {
-  font-size: 11.5px;
-  line-height: 1.5;
+.gemini-bullet-item,
+.gemini-numbered-item {
+  display: flex;
+  align-items: baseline;
+  margin: 4px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.gemini-bullet-dot {
+  display: inline-block;
+  color: #ff6b6b;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.gemini-numbered-badge {
+  display: inline-block;
+  color: #4cd6ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.gemini-heading {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.gemini-markdown-link {
+  color: #4cd6ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 150ms ease;
+}
+
+.gemini-markdown-link:hover {
+  color: #ff6b6b;
 }
 
 /* Typing Cursor */
