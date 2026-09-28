@@ -16,7 +16,7 @@ public class ResendEmailServiceTest {
 
         ContactInquiryRequest request = new ContactInquiryRequest(
                 "HamaraShops Tester",
-                "gorantlacjaran14@gmail.com",
+                "customer@example.com",
                 "General Inquiries",
                 "HamaraShops Test",
                 "This is a test email from HamaraShops.ai."
@@ -56,5 +56,59 @@ public class ResendEmailServiceTest {
             assertThrows(IllegalStateException.class, () -> service.sendAppointmentEmail(request),
                     "Should throw IllegalStateException when RESEND_API_KEY is not set.");
         }
+    }
+
+    @Test
+    public void testBuildDynamicFrom_WithRithika() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResendEmailServiceImpl service = new ResendEmailServiceImpl(objectMapper);
+        String from = service.buildDynamicFrom("Rithika");
+        assertEquals("Rithika <onboarding@resend.dev>", from);
+    }
+
+    @Test
+    public void testBuildDynamicFrom_WithCharanRanga() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResendEmailServiceImpl service = new ResendEmailServiceImpl(objectMapper);
+        String from = service.buildDynamicFrom("Charan Ranga");
+        assertEquals("Charan Ranga <onboarding@resend.dev>", from);
+    }
+
+    @Test
+    public void testBuildDynamicFrom_WithEmptyAndNullFallback() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResendEmailServiceImpl service = new ResendEmailServiceImpl(objectMapper);
+        assertEquals("HamaraShops.ai <onboarding@resend.dev>", service.buildDynamicFrom(null));
+        assertEquals("HamaraShops.ai <onboarding@resend.dev>", service.buildDynamicFrom(""));
+        assertEquals("HamaraShops.ai <onboarding@resend.dev>", service.buildDynamicFrom("   "));
+        assertEquals("HamaraShops.ai <onboarding@resend.dev>", service.buildDynamicFrom("N/A"));
+    }
+
+    @Test
+    public void testResolveSenderAddress_PreventsNestedDisplayNames() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResendEmailServiceImpl service = new ResendEmailServiceImpl(objectMapper);
+        String senderAddress = service.resolveSenderAddress();
+        assertEquals("onboarding@resend.dev", senderAddress);
+    }
+
+    @Test
+    public void testAppointmentEmail_WithRithika() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResendEmailServiceImpl service = new ResendEmailServiceImpl(objectMapper);
+
+        com.hamarashops.contact.model.AppointmentRequest request = new com.hamarashops.contact.model.AppointmentRequest(
+                "Rithika",
+                "pulipati.rithu@gmail.com",
+                "+91 98765 43210",
+                "2026-10-15",
+                "11:00 AM",
+                "Enterprise AI Consultation",
+                "Looking for AI solutions"
+        );
+
+        String dynamicFrom = service.buildDynamicFrom(request.getClientName());
+        assertEquals("Rithika <onboarding@resend.dev>", dynamicFrom);
+        assertEquals("pulipati.rithu@gmail.com", request.getEmail());
     }
 }
