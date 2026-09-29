@@ -86,7 +86,7 @@ public class ResendEmailServiceImpl implements ResendEmailService {
         return cleanName + " <" + senderEmail + ">";
     }
 
-    private String resolveRecipient() {
+    public String resolveRecipient() {
         if (contactRecipient != null && !contactRecipient.trim().isEmpty()) {
             return contactRecipient.trim();
         }
@@ -99,6 +99,18 @@ public class ResendEmailServiceImpl implements ResendEmailService {
             return envContact.trim();
         }
         return "info@hamarashops.ai";
+    }
+
+    public void setResendApiKey(String resendApiKey) {
+        this.resendApiKey = resendApiKey;
+    }
+
+    public void setContactRecipient(String contactRecipient) {
+        this.contactRecipient = contactRecipient;
+    }
+
+    public void setResendFrom(String resendFrom) {
+        this.resendFrom = resendFrom;
     }
 
     @Override
