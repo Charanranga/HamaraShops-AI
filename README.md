@@ -132,18 +132,22 @@ cd HamaraShops-Ai
 ```
 
 ### 2. Start Backend Microservices (Exact Order)
-Open separate terminal tabs for each service (or start in Spring Tool Suite):
-```bash
-# 1. Content Service (Port 8081)
+# 1. Provide Companies_Details.xlsx in project root (obtain from team storage or GCS)
+cp /path/to/Companies_Details.xlsx ./Companies_Details.xlsx
+
+# 2. Auth Service (Port 8084 - LinkedIn OIDC & JSON/Excel user store)
+cd auth-service && mvn spring-boot:run
+
+# 3. Content Service (Port 8081)
 cd content-service && mvn spring-boot:run
 
-# 2. Business Service (Port 8082)
+# 4. Business Service (Port 8082)
 cd business-service && mvn spring-boot:run
 
-# 3. Contact Service (Port 8083)
+# 5. Contact Service (Port 8083)
 cd contact-service && mvn spring-boot:run
 
-# 4. API Gateway (Port 8080)
+# 6. API Gateway (Port 8080)
 cd api-gateway && mvn spring-boot:run
 ```
 
