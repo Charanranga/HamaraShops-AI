@@ -1,0 +1,15 @@
+[ {
+  "id" : 1,
+  "linkedinId" : "CAJWu6KJua",
+  "email" : "gorantlacharanranga@gmail.com",
+  "firstName" : "Gorantla",
+  "lastName" : "Charan Ranga",
+  "name" : "Gorantla Charan Ranga",
+  "pictureUrl" : "https://media.licdn.com/dms/image/v2/D4D03AQEoQA94uEw74w/profile-displayphoto-scale_400_400/B4DaDj8t.vJgAg-/0/1790530740874?e=1793232000&v=beta&t=a4hEiApd6dfxqpzjNq-jRCYvF5Y5RCPMsRgdiBug36Q",
+  "emailVerified" : true,
+  "provider" : "LINKEDIN",
+  "role" : "ROLE_USER",
+  "createdAt" : "2026-10-09T13:40:50.868446700Z",
+  "updatedAt" : "2026-10-13T05:42:35.327830600Z",
+  "linkedinProfileUrl" : null
+} ]

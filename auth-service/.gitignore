@@ -31,8 +31,10 @@ build/
 ### VS Code ###
 .vscode/
 
-### Data directory ###
-data/
+# Database / lock files
+*.db
+*.mv.db
+*.lock.db
 
 # Environment / Secrets
 .env
